@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="dashboard-header">
+            <h1>User Dashboard</h1>
+            <button id="logoutBtn" class="btn btn-secondary">Logout</button>
+        </header>
+        
+        <div class="dashboard-content">
+            <div class="user-card">
+                <h2>Profile Information</h2>
+                <div id="userInfo">
+                    <p>Loading user information...</p>
+                </div>
+            </div>
+            
+            <div class="dashboard-actions">
+                <h2>Quick Actions</h2>
+                <div class="action-buttons">
+                    <button class="btn btn-primary" onclick="alert('Feature coming soon!')">Edit Profile</button>
+                    <button class="btn btn-primary" onclick="alert('Feature coming soon!')">Change Password</button>
+                    <button class="btn btn-primary" onclick="alert('Feature coming soon!')">View Activity</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="dashboard-footer">
+            <p><a href="/">Back to Home</a></p>
+        </div>
+    </div>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            
+            if (!currentUser) {
+                window.location.href = '/login';
+                return;
+            }
+            
+            // Load user data
+            fetch(`/user/${currentUser.id}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.success) {
+                        const user = data.user;
+                        const userInfoDiv = document.getElementById('userInfo');
+                        
+                        userInfoDiv.innerHTML = `
+                            <p><strong>Name:</strong> ${user.name}</p>
+                            <p><strong>Email:</strong> ${user.email}</p>
+                            <p><strong>Member since:</strong> ${new Date(user.created_at).toLocaleDateString()}</p>
+                            <p><strong>User ID:</strong> ${user.id}</p>
+                        `;
+                    } else {
+                        document.getElementById('userInfo').innerHTML = '<p class="error">Error loading user data</p>';
+                    }
+                })
+                .catch(error => {
+                    console.error('Error:', error);
+                    document.getElementById('userInfo').innerHTML = '<p class="error">Error loading user data</p>';
+                });
+                
+            // Logout functionality
+            document.getElementById('logoutBtn').addEventListener('click', function() {
+                localStorage.removeItem('currentUser');
+                window.location.href = '/';
+            });
+        });
+    </script>
+</body>
+</html>

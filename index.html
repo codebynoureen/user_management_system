@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Professional User Portal</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Navigation -->
+        <nav class="navbar">
+            <a href="/" class="nav-brand">
+                <i class="fas fa-user-shield"></i> UserPortal
+            </a>
+            <button class="nav-toggle" id="navToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+                <li class="nav-item"><a href="#features" class="nav-link">Features</a></li>
+                <li class="nav-item"><a href="#testimonials" class="nav-link">Testimonials</a></li>
+                <li class="nav-item"><a href="#about" class="nav-link">About</a></li>
+                <li class="nav-item"><a href="/public/login.html" class="nav-link">Login</a></li>
+            </ul>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="hero-content">
+                <header>
+                    <h1>Modern User Management Solution</h1>
+                    <p>Secure, scalable, and user-friendly authentication system</p>
+                </header>
+                
+                <div class="button-group">
+                    <a href="/public/register.html" class="btn btn-primary">Get Started</a>
+                    <a href="#features" class="btn btn-secondary">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-visual">
+                <div class="visual-element">
+                    <i class="fas fa-users"></i> User Management Made Easy
+                </div>
+            </div>
+        </section>
+        
+        <!-- Stats Section -->
+        <div class="stats-container">
+            <div class="stat-card">
+                <div class="stat-number">1,258</div>
+                <div class="stat-label">Active Users</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">Uptime</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Support</div>
+            </div>
+            <div class="stat-card">
+                <div class="stat-number">99.9%</div>
+                <div class="stat-label">Security</div>
+            </div>
+        </div>
+        
+        <!-- Color Blocks -->
+        <div class="color-block color-block-primary">
+            <i class="fas fa-lock"></i> Enterprise-grade Security
+        </div>
+        
+        <!-- Features Section -->
+        <section id="features">
+            <h2 class="text-center">Why Choose Our Platform?</h2>
+            <div class="features">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3>Secure Authentication</h3>
+                    <p>Robust login system with secure session management and protection against common vulnerabilities.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tachometer-alt"></i>
+                    </div>
+                    <h3>User Dashboard</h3>
+                    <p>Comprehensive dashboard with user statistics, profile management, and activity tracking.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Responsive Design</h3>
+                    <p>Works seamlessly on desktop, tablet, and mobile devices with adaptive interface elements.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Color Block -->
+        <div class="color-block color-block-warm">
+            <i class="fas fa-bolt"></i> Lightning Fast Performance
+        </div>
+        
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="mt-3">
+            <h2 class="text-center">What Our Users Say</h2>
+            <div class="testimonials">
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "This platform has transformed how we manage user authentication. The interface is intuitive and the security features are top-notch."
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">JD</div>
+                        <div class="testimonial-info">
+                            <h4>John Doe</h4>
+                            <p>CTO at TechCorp</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial">
+                    <div class="testimonial-content">
+                        "Implementation was seamless and the responsive design works perfectly across all our company devices. Highly recommend!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">SM</div>
+                        <div class="testimonial-info">
+                            <h4>Sarah Miller</h4>
+                            <p>Product Manager at InnovateCo</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Color Block -->
+        <div class="color-block color-block-cool">
+            <i class="fas fa-rocket"></i> Scalable for Any Business Size
+        </div>
+        
+        <!-- About Section -->
+        <section id="about" class="mt-3">
+            <h2 class="text-center">About UserPortal</h2>
+            <p class="text-center">UserPortal is a modern user management system designed to simplify authentication and user profile management for web applications of all sizes.</p>
+            
+            <div class="button-group mt-2">
+                <a href="/register" class="btn btn-primary">Get Started</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+                <a href="/login" class="btn btn-accent">Existing User</a>
+            </div>
+        </section>
+        
+        <!-- Footer -->
+        <footer class="footer">
+            <p>&copy; 2023 UserPortal. All rights reserved.</p>
+            <p>Privacy Policy | Terms of Service</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Mobile navigation toggle
+        document.getElementById('navToggle').addEventListener('click', function() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('active');
+        });
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
